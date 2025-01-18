@@ -18,7 +18,7 @@ export const load: PageLoad = async () => {
     // Now we can safely check the user
     const user = auth.currentUser;
     if (!user) {
-        throw redirect(302, '/signup');
+        throw redirect(302, '/login');
     }
 
     return {

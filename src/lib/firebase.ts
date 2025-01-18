@@ -2,19 +2,15 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyAACyoC-Q0lCuRJGTLFnXCUkiInOreD8Bw",
-    authDomain: "url-crawler-agent.firebaseapp.com",
-    projectId: "url-crawler-agent",
-    storageBucket: "url-crawler-agent.firebasestorage.app",
-    messagingSenderId: "634772447044",
-    appId: "1:634772447044:web:57611708a4423620264111",
-    measurementId: "G-4CP5ZSX03B"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase

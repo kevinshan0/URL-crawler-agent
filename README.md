@@ -1,38 +1,148 @@
-# sv
+# Documentation Crawler Assistant
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A modern web application that helps users extract, crawl, and condense documentation from any website. Built with SvelteKit and Python, featuring AI-powered content processing and secure authentication.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+### 🔐 User Authentication
+- Secure Firebase Authentication integration
+- Email/password and Google sign-in options
+- Protected routes and API endpoints
+- User session management
+- Secure user data storage in Firebase
 
+### 💻 Responsive Web Interface
+- Modern, clean UI built with SvelteKit
+- Fully responsive design for all device sizes
+- Accessible following WCAG guidelines
+- Real-time chat interface
+- Dark/light theme support
+- Loading states and error handling
+
+### 🤖 AI Documentation Assistant
+- Intelligent documentation crawling and processing
+- Sitemap-based URL discovery
+- Markdown conversion of web content
+- AI-powered content summarization
+- Structured response format
+- Error handling and graceful fallbacks
+
+## Technology Stack
+
+### Frontend
+- **SvelteKit 5** - Modern web framework with server-side rendering
+- **TypeScript** - Type-safe development
+- **Firebase SDK** - Authentication and database integration
+- **TailwindCSS** - Utility-first CSS framework
+
+### Backend
+- **Python FastAPI** - High-performance async API framework
+- **Pydantic** - Data validation using Python type annotations
+- **Pydantic AI** - AI agent framework for structured interactions
+- **Crawl4AI** - Advanced web crawling and content processing
+- **OpenAI GPT-4** - AI model for content understanding and summarization
+
+### Database & Authentication
+- **Firebase Authentication** - User management and security
+- **Firebase Realtime Database** - Data storage and real-time updates
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+ and npm
+- Python 3.9+
+- Firebase project credentials
+- OpenAI API key
+
+### Installation
+
+1. Clone the repository:
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+git clone [repository-url]
+cd [repository-name]
 ```
 
-## Developing
+2. Install frontend dependencies:
+```bash
+npm install
+```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+3. Install backend dependencies:
+```bash
+cd api
+pip install -r requirements.txt
+```
 
+4. Set up environment variables:
+
+Create `.env` file in the api directory:
+```env
+OPENAI_API_KEY=your_openai_api_key
+```
+
+Create `.env` file in the root directory:
+```env
+FIREBASE_API_KEY=your_firebase_api_key
+FIREBASE_AUTH_DOMAIN=your_auth_domain
+FIREBASE_PROJECT_ID=your_project_id
+FIREBASE_STORAGE_BUCKET=your_storage_bucket
+FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+FIREBASE_APP_ID=your_app_id
+```
+
+### Running the Application
+
+1. Start the backend server:
+```bash
+cd api
+uvicorn api_endpoint:app --reload
+```
+
+2. Start the frontend development server:
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+The application will be available at `http://localhost:5173`
 
-To create a production version of your app:
+## API Documentation
 
-```bash
-npm run build
+### Crawler Endpoint
+```typescript
+POST /
+Content-Type: application/json
+
+{
+    "chat_message": "https://example.com"
+}
 ```
 
-You can preview the production build with `npm run preview`.
+Response:
+```json
+{
+    "success": boolean,
+    "message": string,
+    "content": {
+        "url": "markdown_content"
+    }
+}
+```
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- OpenAI for GPT-4 API
+- Crawl4AI team for the web crawling library
+- Firebase team for authentication and database solutions
+- SvelteKit team for the amazing web framework
